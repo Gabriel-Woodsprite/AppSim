@@ -1,0 +1,64 @@
+/* --------------------------------------- */
+/*   TABLAS ESTILO VINTAGE–POP–RETRO       */
+/* --------------------------------------- */
+
+.table-retro {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	font-family: "Poppins", "Trebuchet MS", sans-serif;
+	font-size: 15px;
+	background: #eaebea;
+	border-radius: 12px;
+	overflow: hidden;
+
+	/* Borde grueso + sombra estilo impreso */
+	border: 2px solid #cbcbcb;
+	box-shadow: 6px 6px 0px #323232;
+}
+
+/* Encabezado */
+.table-retro thead {
+	background: #2c2c2c;
+	color: #fff;
+}
+
+.table-retro thead th {
+	padding: 14px;
+	font-size: 16px;
+	font-weight: 800;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	border-bottom: 2px solid #cbcbcb;
+}
+
+/* Celdas */
+.table-retro td {
+	padding: 12px 14px;
+	border-bottom: 2px dashed #2c2c2c;
+	color: #3b2f2f;
+}
+
+/* Filas alternadas estilo papel */
+.table-retro tr:nth-child(odd) td {
+	background: #fff;
+}
+
+/* Hover retro: tono pastel + deslocación */
+.table-retro tbody tr:hover td {
+	/* background: #c0c0c0; */
+	color: #000;
+	transform: translateX(3px);
+	transition: 0.15s ease;
+}
+
+/* Primera columna estilo etiqueta */
+.table-retro tbody td:first-child {
+	font-weight: 700;
+	color: #000000;
+}
+
+/* Bordes finales */
+.table-retro tbody tr:last-child td {
+	border-bottom: none;
+}
