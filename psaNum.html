@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="option"
+			id="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/menuCard.css" />
+		<link rel="stylesheet" href="css/tables.css" />
+		<link rel="stylesheet" href="css/copyButtons.css" />
+		<title>Numeros Aleatorios</title>
+	</head>
+	<body>
+		<div class="centerMain">
+			<div class="card">
+				<div class="head">
+					<a href="index.html"
+						><img width="25px" src="img/home.png" alt=""
+					/></a>
+					Numeros Pseudoaleatorios
+				</div>
+				<div class="content">
+					<div class="methodSelector">
+						<!-- From Uiverse.io by pharmacist-sabot -->
+						<div class="radio-group">
+							<label class="radio">
+								<input
+									class="generatorRadio"
+									type="radio"
+									name="option"
+									id="CM" />
+								<!-- Cuadrados Medios -->
+								<div class="radio-visual">
+									<div class="radio-dot"></div>
+								</div>
+								<span class="radio-label">Cuadrados Medios</span>
+							</label>
+
+							<label class="radio">
+								<input
+									class="generatorRadio"
+									type="radio"
+									name="option"
+									id="MC" />
+								<!-- Multiplicador Constante -->
+								<div class="radio-visual">
+									<div class="radio-dot"></div>
+								</div>
+								<span class="radio-label">Multiplicador Constante</span>
+							</label>
+
+							<label class="radio">
+								<input
+									class="generatorRadio"
+									type="radio"
+									name="option"
+									id="PM" />
+								<!-- Productos Medios -->
+								<div class="radio-visual">
+									<div class="radio-dot"></div>
+								</div>
+								<span class="radio-label">Productos Medios</span>
+							</label>
+
+							<label class="radio">
+								<input
+									class="generatorRadio"
+									type="radio"
+									name="option"
+									id="CA" />
+								<!-- Congruencial Aditivo -->
+								<div class="radio-visual">
+									<div class="radio-dot"></div>
+								</div>
+								<span class="radio-label">Congruencial Aditivo</span>
+							</label>
+							<label class="radio">
+								<input
+									class="generatorRadio"
+									type="radio"
+									name="option"
+									id="CL" />
+								<!-- CONGRUENCIAL LINEAL -->
+								<div class="radio-visual">
+									<div class="radio-dot"></div>
+								</div>
+								<span class="radio-label">Congruencial Lineal</span>
+							</label>
+							<label class="radio">
+								<input
+									class="generatorRadio"
+									type="radio"
+									name="option"
+									id="MCG" /><!-- CONGRUENCIAL MULTIPLICATIVO -->
+								<div class="radio-visual">
+									<div class="radio-dot"></div>
+								</div>
+								<span class="radio-label">Congruencial Multiplicativo</span>
+							</label>
+							<label class="radio">
+								<input
+									class="generatorRadio"
+									type="radio"
+									name="option"
+									id="CC" />
+								<!-- CONGRUENCIAL CUADRATICO -->
+								<div class="radio-visual">
+									<div class="radio-dot"></div>
+								</div>
+								<span class="radio-label">Congruencial Cuadratico</span>
+							</label>
+						</div>
+					</div>
+					<br />
+					<button class="psNumButton">Generar</button>
+				</div>
+			</div>
+			<div id="resultSection" class="hidden">
+				<div class="tableContainer">
+					<h2>Numeros Generados</h2>
+					<table class="mcgTable table-retro">
+						<thead>
+							<tr>
+								<th>Iteración</th>
+								<th>Seed</th>
+								<th>U<sub>i</sub></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="iteracion"></td>
+								<td class="seed"></td>
+								<td class="ui"></td>
+							</tr>
+							<tr>
+								<td class="iteracion"></td>
+								<td class="seed"></td>
+								<td class="ui"></td>
+							</tr>
+							<tr>
+								<td class="iteracion"></td>
+								<td class="seed"></td>
+								<td class="ui"></td>
+							</tr>
+							<tr>
+								<td class="iteracion"></td>
+								<td class="seed"></td>
+								<td class="ui"></td>
+							</tr>
+							<tr>
+								<td class="iteracion"></td>
+								<td class="seed"></td>
+								<td class="ui"></td>
+							</tr>
+							<tr>
+								<td class="iteracion"></td>
+								<td class="seed"></td>
+								<td class="ui"></td>
+							</tr>
+							<tr>
+								<td class="iteracion"></td>
+								<td class="seed"></td>
+								<td class="ui"></td>
+							</tr>
+							<tr>
+								<td class="iteracion"></td>
+								<td class="seed"></td>
+								<td class="ui"></td>
+							</tr>
+							<tr>
+								<td class="iteracion"></td>
+								<td class="seed"></td>
+								<td class="ui"></td>
+							</tr>
+							<tr>
+								<td class="iteracion"></td>
+								<td class="seed"></td>
+								<td class="ui"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="copyButtonsContainer">
+					<!-- From Uiverse.io by Juanes200122 -->
+					<button data-count="10" class="copyBtn copy">
+						<span
+							class="tooltip"
+							data-text-initial="Copiar Primeros 10"
+							data-text-end="Copiado"></span>
+						<span>
+							<svg
+								class="clipboard"
+								xmlns="http://www.w3.org/2000/svg"
+								version="1.1"
+								xmlns:xlink="http://www.w3.org/1999/xlink"
+								width="20"
+								height="20"
+								x="0"
+								y="0"
+								viewBox="0 0 6.35 6.35"
+								style="enable-background: new 0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M2.43.265c-.3 0-.548.236-.573.53h-.328a.74.74 0 0 0-.735.734v3.822a.74.74 0 0 0 .735.734H4.82a.74.74 0 0 0 .735-.734V1.529a.74.74 0 0 0-.735-.735h-.328a.58.58 0 0 0-.573-.53zm0 .529h1.49c.032 0 .049.017.049.049v.431c0 .032-.017.049-.049.049H2.43c-.032 0-.05-.017-.05-.049V.843c0-.032.018-.05.05-.05zm-.901.53h.328c.026.292.274.528.573.528h1.49a.58.58 0 0 0 .573-.529h.328a.2.2 0 0 1 .206.206v3.822a.2.2 0 0 1-.206.205H1.53a.2.2 0 0 1-.206-.205V1.529a.2.2 0 0 1 .206-.206z"
+										fill="currentColor"></path>
+								</g>
+							</svg>
+							<svg
+								class="checkmark"
+								xmlns="http://www.w3.org/2000/svg"
+								version="1.1"
+								xmlns:xlink="http://www.w3.org/1999/xlink"
+								width="18"
+								height="18"
+								x="0"
+								y="0"
+								viewBox="0 0 24 24"
+								style="enable-background: new 0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+										fill="currentColor"
+										data-original="#000000"></path>
+								</g>
+							</svg>
+						</span>
+					</button>
+					<button data-count="15" class="copyBtn copy">
+						<span
+							class="tooltip"
+							data-text-initial="Copiar Primeros 15"
+							data-text-end="Copiado"></span>
+						<span>
+							<svg
+								class="clipboard"
+								xmlns="http://www.w3.org/2000/svg"
+								version="1.1"
+								xmlns:xlink="http://www.w3.org/1999/xlink"
+								width="20"
+								height="20"
+								x="0"
+								y="0"
+								viewBox="0 0 6.35 6.35"
+								style="enable-background: new 0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M2.43.265c-.3 0-.548.236-.573.53h-.328a.74.74 0 0 0-.735.734v3.822a.74.74 0 0 0 .735.734H4.82a.74.74 0 0 0 .735-.734V1.529a.74.74 0 0 0-.735-.735h-.328a.58.58 0 0 0-.573-.53zm0 .529h1.49c.032 0 .049.017.049.049v.431c0 .032-.017.049-.049.049H2.43c-.032 0-.05-.017-.05-.049V.843c0-.032.018-.05.05-.05zm-.901.53h.328c.026.292.274.528.573.528h1.49a.58.58 0 0 0 .573-.529h.328a.2.2 0 0 1 .206.206v3.822a.2.2 0 0 1-.206.205H1.53a.2.2 0 0 1-.206-.205V1.529a.2.2 0 0 1 .206-.206z"
+										fill="currentColor"></path>
+								</g>
+							</svg>
+							<svg
+								class="checkmark"
+								xmlns="http://www.w3.org/2000/svg"
+								version="1.1"
+								xmlns:xlink="http://www.w3.org/1999/xlink"
+								width="18"
+								height="18"
+								x="0"
+								y="0"
+								viewBox="0 0 24 24"
+								style="enable-background: new 0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+										fill="currentColor"
+										data-original="#000000"></path>
+								</g>
+							</svg>
+						</span>
+					</button>
+					<button data-count="50" class="copyBtn copy">
+						<span
+							class="tooltip"
+							data-text-initial="Copiar Primeros 50"
+							data-text-end="Copiado"></span>
+						<span>
+							<svg
+								class="clipboard"
+								xmlns="http://www.w3.org/2000/svg"
+								version="1.1"
+								xmlns:xlink="http://www.w3.org/1999/xlink"
+								width="20"
+								height="20"
+								x="0"
+								y="0"
+								viewBox="0 0 6.35 6.35"
+								style="enable-background: new 0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M2.43.265c-.3 0-.548.236-.573.53h-.328a.74.74 0 0 0-.735.734v3.822a.74.74 0 0 0 .735.734H4.82a.74.74 0 0 0 .735-.734V1.529a.74.74 0 0 0-.735-.735h-.328a.58.58 0 0 0-.573-.53zm0 .529h1.49c.032 0 .049.017.049.049v.431c0 .032-.017.049-.049.049H2.43c-.032 0-.05-.017-.05-.049V.843c0-.032.018-.05.05-.05zm-.901.53h.328c.026.292.274.528.573.528h1.49a.58.58 0 0 0 .573-.529h.328a.2.2 0 0 1 .206.206v3.822a.2.2 0 0 1-.206.205H1.53a.2.2 0 0 1-.206-.205V1.529a.2.2 0 0 1 .206-.206z"
+										fill="currentColor"></path>
+								</g>
+							</svg>
+							<svg
+								class="checkmark"
+								xmlns="http://www.w3.org/2000/svg"
+								version="1.1"
+								xmlns:xlink="http://www.w3.org/1999/xlink"
+								width="18"
+								height="18"
+								x="0"
+								y="0"
+								viewBox="0 0 24 24"
+								style="enable-background: new 0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+										fill="currentColor"
+										data-original="#000000"></path>
+								</g>
+							</svg>
+						</span>
+					</button>
+					<button data-count="100" class="copyBtn copy">
+						<span
+							class="tooltip"
+							data-text-initial="Copiar Primeros 100"
+							data-text-end="Copiado"></span>
+						<span>
+							<svg
+								class="clipboard"
+								xmlns="http://www.w3.org/2000/svg"
+								version="1.1"
+								xmlns:xlink="http://www.w3.org/1999/xlink"
+								width="20"
+								height="20"
+								x="0"
+								y="0"
+								viewBox="0 0 6.35 6.35"
+								style="enable-background: new 0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M2.43.265c-.3 0-.548.236-.573.53h-.328a.74.74 0 0 0-.735.734v3.822a.74.74 0 0 0 .735.734H4.82a.74.74 0 0 0 .735-.734V1.529a.74.74 0 0 0-.735-.735h-.328a.58.58 0 0 0-.573-.53zm0 .529h1.49c.032 0 .049.017.049.049v.431c0 .032-.017.049-.049.049H2.43c-.032 0-.05-.017-.05-.049V.843c0-.032.018-.05.05-.05zm-.901.53h.328c.026.292.274.528.573.528h1.49a.58.58 0 0 0 .573-.529h.328a.2.2 0 0 1 .206.206v3.822a.2.2 0 0 1-.206.205H1.53a.2.2 0 0 1-.206-.205V1.529a.2.2 0 0 1 .206-.206z"
+										fill="currentColor"></path>
+								</g>
+							</svg>
+							<svg
+								class="checkmark"
+								xmlns="http://www.w3.org/2000/svg"
+								version="1.1"
+								xmlns:xlink="http://www.w3.org/1999/xlink"
+								width="18"
+								height="18"
+								x="0"
+								y="0"
+								viewBox="0 0 24 24"
+								style="enable-background: new 0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+										fill="currentColor"
+										data-original="#000000"></path>
+								</g>
+							</svg>
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- <script src="js/app.js"></script> -->
+		<script type="module" src="/js/app.js"></script>
+	</body>
+</html>

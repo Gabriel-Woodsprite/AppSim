@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/variables.css" />
+		<link rel="stylesheet" href="css/tables.css" />
+		<title>Variables Aleatorias</title>
+	</head>
+	<body>
+		<div class="variablesContainer">
+			<!-- From Uiverse.io by german_7619 -->
+			<div class="radio-inputs">
+				<button
+					class="go-back-in-tabs"
+					onclick="window.location.href='index.html'">
+					← Volver
+				</button>
+				<label class="radio">
+					<input class="radio__input" type="radio" name="radio" checked="" />
+					<span class="name">
+						<span class="pre-name"></span>
+						<span class="pos-name"></span>
+						<span> Convolución </span>
+					</span>
+					<div class="content">
+						<div>
+							<!-- From Uiverse.io by andrew-demchenk0 -->
+							<div class="wrapper">
+								<div class="card-switch">
+									<div class="flip-card__inner">
+										<div class="flip-card__front">
+											<div class="title">Ingresa tus datos</div>
+											<form class="flip-card__form" action="">
+												<input
+													aria-required="true"
+													required
+													class="flip-card__input lambda"
+													name="sigma"
+													placeholder="σ"
+													type="text" />
+												<input
+													aria-required="true"
+													required
+													class="flip-card__input mu"
+													name="mu"
+													placeholder="μ"
+													type="text" />
+												<div class="rangeContainer">
+													<label for="myRange">Cantidad de Numeros</label>
+													<span id="rangeValue">15</span>
+													<input
+														aria-required="true"
+														required
+														class="myRange"
+														type="range"
+														value="15"
+														min="10"
+														max="100"
+														step="10"
+														name="cantidad"
+														id="myRange" />
+												</div>
+												<div class="variableRangeContainer">
+													<label for="variablesRange"
+														>Variables Generadas
+													</label>
+													<span id="variableValue">15</span>
+													<input
+														aria-required="true"
+														required
+														class="variablesRange"
+														type="range"
+														value="5"
+														min="5"
+														max="10"
+														step="1"
+														name="cantidad"
+														id="variablesRange" />
+												</div>
+												<button class="flip-card__btn">Calcular</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tableContainer">
+								<table class="table-retro">
+									<thead>
+										<tr>
+											<th>Iteracion</th>
+											<th>[∑r<sub>i</sub>-6]σ+μ</th>
+										</tr>
+									</thead>
+									<tbody></tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</label>
+				<label class="radio">
+					<input class="radio__input" type="radio" name="radio" />
+					<span class="name">
+						<span class="pre-name"></span>
+						<span class="pos-name"></span>
+						<span> Composición </span>
+					</span>
+					<div class="content">
+						<div>
+							<div>And content</div>
+						</div>
+					</div>
+				</label>
+
+				<label class="radio">
+					<input class="radio__input" type="radio" name="radio" />
+					<span class="name">
+						<span class="pre-name"></span>
+						<span class="pos-name"></span>
+						<span> Prubes Estadísticas </span>
+					</span>
+					<div class="content">
+						<div>
+							<div>More content</div>
+						</div>
+					</div>
+				</label>
+			</div>
+		</div>
+		<script src="js/range.js"></script>
+		<script type="module" src="js/convolucion.js"></script>
+	</body>
+</html>
