@@ -1,0 +1,61 @@
+/* Estilo general de la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Títulos */
+h1, h2 {
+    color: #222;
+}
+
+/* Inputs y labels */
+label {
+    font-weight: bold;
+}
+input[type="number"] {
+    width: 100px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+/* Botones */
+button {
+    padding: 8px 15px;
+    margin: 5px 5px 15px 0;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #45a049;
+}
+
+/* Tabla de resultados */
+#resultadoTabla {
+    border-collapse: collapse;
+    width: 60%;
+    max-width: 600px;
+    margin-top: 15px;
+}
+#resultadoTabla th, #resultadoTabla td {
+    border: 1px solid #555;
+    padding: 8px;
+    text-align: center;
+}
+#resultadoTabla th {
+    background-color: #f2f2f2;
+    color: #222;
+}
+#resultadoTabla tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+#resultadoTabla tr:nth-child(odd) {
+    background-color: #ffffff;
+}
