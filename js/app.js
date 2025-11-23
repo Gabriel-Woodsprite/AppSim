@@ -1,5 +1,7 @@
-import { mcgAPP } from "./pseudoMethods.js";
+
+import { cmApp, mcAPP, pmApp, caApp, clApp, mcgAPP, ccAppm } from "./pseudoMethods.js";
 import { clipboardCopy } from "./clipboardCopy.js";
+
 
 let psNumButton = document.querySelector(".psNumButton");
 
@@ -9,7 +11,7 @@ psNumButton.addEventListener("click", () => {
 		section.classList.remove("hidden");
 		section.classList.add("notHidden");
 
-		// Mover la página hasta el final completamente
+		
 		setTimeout(() => {
 			window.scrollTo({
 				top: document.body.scrollHeight,
@@ -17,35 +19,36 @@ psNumButton.addEventListener("click", () => {
 			});
 		}, 100); // pequeño delay para que aparezca la sección primero
 
+		// Llamamos a la función correcta según el radio seleccionado
 		switch (getCheckedRadio()) {
-			case "CM": //Cuadrados Medios
-				cmAPP();
+			case "CM": // Cuadrados Medios
+				cmApp();
 				break;
-			case "MC": //Multiplicador Constante
+			case "MC": // Multiplicador Constante
 				mcAPP();
 				break;
-			case "PM": //Productos Medios
-				pmAPP();
+			case "PM": // Productos Medios
+				pmApp();
 				break;
-			case "CA": //Congruencial Aditivo
-				caAPP();
+			case "CA": // Congruencial Aditivo
+				caApp();
 				break;
-			case "CL": //Congruencial Lineal
-				clAPP();
+			case "CL": // Congruencial Lineal
+				clApp();
 				break;
-			case "MCG": //Congruencial Multiplicativo
+			case "MCG": // Congruencial Multiplicativo
 				mcgAPP();
 				break;
-			case "CC": //Congruencial Cuadratico
-				ccAPP();
+			case "CC": // Congruencial Cuadrático
+				ccAppm();
 				break;
-
 			default:
 				break;
 		}
 	}
 });
 
+// Función para obtener qué radio está seleccionado
 function getCheckedRadio() {
 	let generatorName = "";
 	let radios = document.querySelectorAll(".generatorRadio");
@@ -56,5 +59,6 @@ function getCheckedRadio() {
 	});
 	return generatorName;
 }
+
 
 clipboardCopy();
