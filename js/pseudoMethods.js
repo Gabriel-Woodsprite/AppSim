@@ -3,15 +3,14 @@ import { fillTable } from "./fillTable.js";
 let ui = [];
 
 function cmApp() {}
-function mcAPP() {}
-function cmApp() {}
+function mcApp() {}
 function pmApp() {}
 function caApp() {}
 function clApp() {}
-function mcgAPP() {
+function mcgApp() {
 	fillTable(getMCG(Date.now(), 100));
 }
-function ccAppm() {}
+function ccApp() {}
 
 function getMCG(seed, iterations) {
 	const a = 1664525; // Buena constante usada por glibc
@@ -23,12 +22,12 @@ function getMCG(seed, iterations) {
 
 	for (let i = 0; i < iterations; i++) {
 		x = (a * x + c) % m;
-		seeds.push(x);
-		ui.push(x / m); // Normalizado 0–1
+		seeds[i] = x;
+		ui[i] = x / m; // Normalizado 0–1
 	}
 
 	return { seeds, ui };
 }
 
 export { getMCG, ui };
-export { cmApp, mcAPP, pmApp, caApp, clApp, mcgAPP, ccAppm };
+export { cmApp, mcApp, pmApp, caApp, clApp, mcgApp, ccApp };
