@@ -9,6 +9,7 @@ import {
 } from "./pseudoMethods.js";
 import { clipboardCopy } from "./clipboardCopy.js";
 
+
 let psNumButton = document.querySelector(".psNumButton");
 
 psNumButton.addEventListener("click", () => {
@@ -17,7 +18,7 @@ psNumButton.addEventListener("click", () => {
 		section.classList.remove("hidden");
 		section.classList.add("notHidden");
 
-		// Mover la página hasta el final completamente
+		
 		setTimeout(() => {
 			window.scrollTo({
 				top: document.body.scrollHeight,
@@ -25,6 +26,7 @@ psNumButton.addEventListener("click", () => {
 			});
 		}, 100); // pequeño delay para que aparezca la sección primero
 
+		// Llamamos a la función correcta según el radio seleccionado
 		switch (getCheckedRadio()) {
 			case "CM": //Cuadrados Medios
 				cmApp();
@@ -47,13 +49,13 @@ psNumButton.addEventListener("click", () => {
 			case "CC": //Congruencial Cuadratico
 				ccApp();
 				break;
-
 			default:
 				break;
 		}
 	}
 });
 
+// Función para obtener qué radio está seleccionado
 function getCheckedRadio() {
 	let generatorName = "";
 	let radios = document.querySelectorAll(".generatorRadio");
@@ -64,5 +66,6 @@ function getCheckedRadio() {
 	});
 	return generatorName;
 }
+
 
 clipboardCopy();
