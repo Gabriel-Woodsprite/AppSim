@@ -68,12 +68,61 @@ function pmApp(s1 = Date.now(), s2 = 5678, n = 10) { // Productos Medios
 
 
 
-function caApp() {}
-function clApp() {}
+
+    function caApp(s1 = 0.1234, s2 = 0.5678, n = 10) { // Congruencial Aditivo
+    let results = [];
+    let seeds = [s1, s2];
+
+    for (let i = 0; i < n; i++) {
+        let next = (seeds[seeds.length - 1] + seeds[seeds.length - 2]) % 1;
+        results.push(next);
+        seeds.push(next);
+    }
+
+    const obj = { seeds, ui: results };
+    fillTable(obj);
+    return obj;
+}
+
+
+function clApp(s1 = 0.1234, s2 = 0.5678, n = 10) {
+    let results = [];
+    let seeds = [s1, s2];
+
+    for (let i = 0; i < n; i++) {
+        let next = (seeds[seeds.length - 1] + seeds[seeds.length - 2]) % 1;
+        results.push(next);
+        seeds.push(next);
+    }
+
+    const obj = { seeds, ui: results };
+    fillTable(obj);
+    return obj;
+}
+
 function mcgAPP() {
     fillTable(getMCG(Date.now(), 100));
 }
-function ccAppm() {}
+function ccAppm(seed = Date.now(), n = 10) {
+    let results = [];
+    let seeds = [];
+    let current = seed;
+
+    for (let i = 0; i < n; i++) {
+        let squared = current * current;
+        seeds.push(squared);
+
+        let mid = getMiddleDigits(squared);
+        results.push(parseFloat("0." + mid));
+
+        current = mid;
+    }
+
+    const obj = { seeds, ui: results };
+    fillTable(obj);
+    return obj;
+}
+
 
 function getMCG(seed, iterations) {
     const a = 1664525; // Buena constante usada por glibc

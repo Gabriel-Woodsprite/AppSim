@@ -43,6 +43,54 @@ function productosMediosN(s1, s2, cantidad) {
     }
     return resultados;
 }
+//Metodo  congruencial aditivo
+function congruencialAditivoN(semilla, cantidad) {
+    const resultados = [];
+    const n = semilla.length;
+
+    // Copia de las semillas para NO modificar el arreglo original del usuario
+    let S = [...semilla];
+
+    for (let i = 0; i < cantidad; i++) {
+        // siguiente número = (última semilla + penúltima semilla) mod 1
+        let next = (S[S.length - 1] + S[S.length - 2]) % 1;
+
+        resultados.push(next);
+
+        // actualizar las semillas:
+        S.shift();      // eliminar la primera
+        S.push(next);   // agregar el nuevo número al final
+    }
+    return resultados;
+}
+//Metodo congruencial lineal
+function congruencialLinealN(semillas, cantidad) {
+    const resultados = [];
+    let S = [...semillas]; // NO tocar semillas originales
+
+    for (let i = 0; i < cantidad; i++) {
+        let next = (S[S.length - 1] + S[S.length - 2]) % 1;
+        resultados.push(next);
+        S.shift();
+        S.push(next);
+    }
+
+    return resultados;
+}
+//Metodo congruencial cuadratico
+function congruencialCuadraticoN(semilla, cantidad) {
+    let x = semilla;
+    const resultados = [];
+
+    for (let i = 0; i < cantidad; i++) {
+        x = middle4(x * x) * 10000;   
+        resultados.push(x / 10000);
+    }
+
+    return resultados;
+}
+
+
 
 // ---- Función para mostrar resultados en tabla ----
 function mostrarEnTabla(resultados) {
@@ -86,3 +134,49 @@ document.getElementById("btnProductosMedios").addEventListener("click", () => {
     let resultados = productosMediosN(s1, s2, cantidad);
     mostrarEnTabla(resultados);
 });
+document.getElementById("btnCongruencialAditivo").addEventListener("click", () => {
+
+    let s1 = Number(document.getElementById("semillaInput").value);
+    let s2 = Number(document.getElementById("semilla2Input").value);
+    let cantidad = Number(document.getElementById("cantidadInput").value);
+
+    if (isNaN(s1) || isNaN(s2) || s1 <= 0 || s2 <= 0 || s1 >= 1 || s2 >= 1) {
+        alert("Ingresa dos semillas decimales entre 0 y 1.");
+        return;
+    }
+
+    let semillas = [s1, s2];
+
+    let resultados = congruencialAditivoN(semillas, cantidad);
+    mostrarEnTabla(resultados);
+});
+document.getElementById("btnCongruencialLineal").addEventListener("click", () => {
+    let s1 = Number(document.getElementById("semillaInput").value);
+    let s2 = Number(document.getElementById("semilla2Input").value);
+    let cantidad = Number(document.getElementById("cantidadInput").value);
+
+    if (isNaN(s1) || isNaN(s2) || s1 <= 0 || s2 <= 0 || s1 >= 1 || s2 >= 1) {
+        alert("Ingresa dos semillas entre 0 y 1.");
+        return;
+    }
+
+    let semillas = [s1, s2];
+    let resultados = congruencialLinealN(semillas, cantidad);
+    mostrarEnTabla(resultados);
+});
+
+document.getElementById("btnCongruencialCuadratico").addEventListener("click", () => {
+    let semilla = Number(document.getElementById("semillaInput").value);
+    let cantidad = Number(document.getElementById("cantidadInput").value);
+
+    if (!semilla || semilla <= 0) {
+        alert("Ingresa una semilla válida.");
+        return;
+    }
+
+    let resultados = congruencialCuadraticoN(semilla, cantidad);
+    mostrarEnTabla(resultados);
+});
+
+
+
