@@ -27,7 +27,7 @@ function cmApp(seed = Date.now(), n = 10) { // Cuadrados Medios
     return obj;
 }
 
-function mcAPP(seed = Date.now(), constant = 5, n = 10) { // Multiplicador Constante
+function mcApp(seed = Date.now(), constant = 5, n = 10) { // Multiplicador Constante
     let results = [];
     let seeds = [];
     let current = seed;
@@ -100,10 +100,10 @@ function clApp(s1 = 0.1234, s2 = 0.5678, n = 10) {
     return obj;
 }
 
-function mcgAPP() {
+function mcgApp() {
     fillTable(getMCG(Date.now(), 100));
 }
-function ccAppm(seed = Date.now(), n = 10) {
+function ccApp(seed = Date.now(), n = 10) {
     let results = [];
     let seeds = [];
     let current = seed;
@@ -133,13 +133,14 @@ function getMCG(seed, iterations) {
     let seeds = [];
     let uiValues = [];
 
-    for (let i = 0; i < iterations; i++) {
-        x = (a * x + c) % m;
-        seeds.push(x);
-        uiValues.push(x / m); // Normalizado 0–1
-    }
+	for (let i = 0; i < iterations; i++) {
+		x = (a * x + c) % m;
+		seeds[i] = x;
+		ui[i] = x / m; // Normalizado 0–1
+	}
 
     return { seeds, ui: uiValues };
 }
 
-export { cmApp, mcAPP, pmApp, caApp, clApp, mcgAPP, ccAppm, getMCG, ui };
+export { getMCG, ui };
+export { cmApp, mcApp, pmApp, caApp, clApp, mcgApp, ccApp };
