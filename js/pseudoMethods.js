@@ -83,22 +83,26 @@ function pmApp(s1 = Date.now(), s2 = 5678, n = 10) { // Productos Medios
     fillTable(obj);
     return obj;
 }
-
+//Lineal
 
 function clApp(s1 = 0.1234, s2 = 0.5678, n = 10) {
     let results = [];
     let seeds = [s1, s2];
 
+    let a = s1;    // multiplicador tomado de la primera semilla
+    let x = s2;    // valor inicial tomado de la segunda semilla
+
     for (let i = 0; i < n; i++) {
-        let next = (seeds[seeds.length - 1] + seeds[seeds.length - 2]) % 1;
-        results.push(next);
-        seeds.push(next);
+        x = (a * x) % 1; // fórmula congruencial lineal real
+        results.push(x);
+        seeds.push(x);
     }
 
     const obj = { seeds, ui: results };
     fillTable(obj);
     return obj;
 }
+
 
 function mcgAPP() {
     fillTable(getMCG(Date.now(), 100));
