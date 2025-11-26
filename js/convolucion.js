@@ -9,17 +9,20 @@ let flipCard__btn = document.querySelector(".flip-card__btn");
 flipCard__btn.addEventListener("click", e => {
 	e.preventDefault();
 
-	let lambda = Number(document.querySelector(".lambda").value);
+	let sigma = Number(document.querySelector(".sigma").value);
 	let mu = Number(document.querySelector(".mu").value);
 	let variablesRange = Number(document.querySelector(".variablesRange").value);
 
-	if (!isNaN(lambda) && !isNaN(mu)) {
-		if (lambda > 0 && mu > 0) {
+	if (!isNaN(sigma) && !isNaN(mu)) {
+		if (sigma > 0 && mu > 0) {
 			for (let i = 0; i < variablesRange; i++) {
 				let summatory = 0;
-				generatedNumbers = getMCG(Date.now(), 12).ui;
+				generatedNumbers = getMCG(Date.now() + i, 12).ui;
+				console.log(generatedNumbers);
+				console.log("---------------------------");
 				for (let j = 0; j < 12; j++) {
-					summatory += (generatedNumbers[j] - 6) * lambda + mu;
+					console.log(generatedNumbers[j]);
+					summatory += (generatedNumbers[j] - 6) * sigma + mu;
 				}
 				variableArray[i] = summatory;
 			}

@@ -1,5 +1,12 @@
-
-import { cmApp, mcAPP, pmApp, caApp, clApp, mcgAPP, ccAppm } from "./pseudoMethods.js";
+import {
+	cmApp,
+	mcApp,
+	pmApp,
+	caApp,
+	clApp,
+	mcgApp,
+	ccApp,
+} from "./pseudoMethods.js";
 import { clipboardCopy } from "./clipboardCopy.js";
 
 
@@ -21,26 +28,26 @@ psNumButton.addEventListener("click", () => {
 
 		// Llamamos a la función correcta según el radio seleccionado
 		switch (getCheckedRadio()) {
-			case "CM": // Cuadrados Medios
+			case "CM": //Cuadrados Medios
 				cmApp();
 				break;
-			case "MC": // Multiplicador Constante
-				mcAPP();
+			case "MC": //Multiplicador Constante
+				mcApp();
 				break;
-			case "PM": // Productos Medios
+			case "PM": //Productos Medios
 				pmApp();
 				break;
-			case "CA": // Congruencial Aditivo
+			case "CA": //Congruencial Aditivo
 				caApp();
 				break;
-			case "CL": // Congruencial Lineal
+			case "CL": //Congruencial Lineal
 				clApp();
 				break;
-			case "MCG": // Congruencial Multiplicativo
-				mcgAPP();
+			case "MCG": //Congruencial Multiplicativo
+				mcgApp();
 				break;
-			case "CC": // Congruencial Cuadrático
-				ccAppm();
+			case "CC": //Congruencial Cuadratico
+				ccApp();
 				break;
 			default:
 				break;
