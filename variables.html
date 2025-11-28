@@ -27,6 +27,7 @@
 					<div class="content">
 						<div>
 							<!-- From Uiverse.io by andrew-demchenk0 -->
+							<!-- T R A N S F O R M A D A  I N V E R S A -->
 							<div class="wrapper">
 								<div class="card-switch">
 									<div class="flip-card__inner">
@@ -72,18 +73,29 @@
 														name="cantidad"
 														id="range-TI" />
 												</div>
-												<button class="flip-card__btn">Calcular</button>
+												<button class="flip-card__btn btn-TI">Calcular</button>
 											</form>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="tableContainer">
+							<div class="ti-table">
 								<table class="table-retro">
 									<thead>
 										<tr>
-											<th>Iteracion</th>
-											<th>[∑r<sub>i</sub>-6]σ+μ</th>
+											<th>Iteración</th>
+											<th>
+												<math display="block">
+													<mrow>
+														<mo>-</mo>
+														<mfrac>
+															<mn>1</mn>
+															<mi>λ</mi>
+														</mfrac>
+														<mo>ln(1-U)</mo>
+													</mrow>
+												</math>
+											</th>
 										</tr>
 									</thead>
 									<tbody></tbody>
@@ -111,7 +123,7 @@
 												<input
 													aria-required="true"
 													required
-													class="flip-card__input lambda"
+													class="flip-card__input sigma"
 													name="sigma"
 													placeholder="σ"
 													type="text" />
@@ -154,13 +166,15 @@
 														name="cantidad"
 														id="variablesRange" />
 												</div>
-												<button class="flip-card__btn">Calcular</button>
+												<button class="flip-card__btn btn-CONV">
+													Calcular
+												</button>
 											</form>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="tableContainer">
+							<div class="conv-table">
 								<table class="table-retro">
 									<thead>
 										<tr>
@@ -181,23 +195,146 @@
 						<span class="pos-name"></span>
 						<span> Composición </span>
 					</span>
+					<!-- C O M P O S I C I O N -->
 					<div class="content">
 						<div>
-							<div>And content</div>
+							<div class="wrapper">
+								<div class="card-switch">
+									<div class="flip-card__inner">
+										<div class="flip-card__front">
+											<div class="title">Ingresa tus datos</div>
+											<form class="flip-card__form" action="">
+												<div class="distribucionCOMPContainer">
+													<label for="distribucionSelect"
+														>Escoge el primer tipo de distribución</label
+													>
+													<select
+														name="distribucionSelect"
+														id="distribucionSelect">
+														<option value="uniforme" disabled>Uniforme</option>
+														<option value="exponencial" selected>
+															Exponencial
+														</option>
+														<option value="triangular" disabled>
+															Triangular
+														</option>
+														<option value="binomial" disabled>Binomial</option>
+													</select>
+												</div>
+												<div class="distribucionCOMPContainer">
+													<label for="distribucionSelect"
+														>Escoge el segundo tipo de distribución</label
+													>
+													<select
+														name="distribucionSelect"
+														id="distribucionSelect">
+														<option value="uniforme" disabled>Uniforme</option>
+														<option value="exponencial" selected>
+															Exponencial
+														</option>
+														<option value="triangular" disabled>
+															Triangular
+														</option>
+														<option value="binomial" disabled>Binomial</option>
+													</select>
+												</div>
+												<input
+													aria-required="true"
+													required
+													class="flip-card__input probabilidad"
+													name="probabilidad"
+													placeholder="Probabilidad (%)"
+													type="text" />
+												<input
+													aria-required="true"
+													required
+													class="flip-card__input lambda-comp"
+													name="lambda-COMP"
+													placeholder="Taza de Ocurrencia (λ)"
+													type="text" />
+												<div class="rangeContainer">
+													<label for="range-COMP">Cantidad de Numeros</label>
+													<span id="rangeValue">15</span>
+													<input
+														aria-required="true"
+														required
+														class="range-COMP"
+														type="range"
+														value="15"
+														min="10"
+														max="100"
+														step="10"
+														name="cantidad"
+														id="range-COMP" />
+												</div>
+												<button class="btn-CMP flip-card__btn">Calcular</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="comp-table">
+								<table class="table-retro">
+									<thead>
+										<tr>
+											<th>Iteración</th>
+											<th>
+												<math display="block">
+													<mrow>
+														<mo>-</mo>
+														<mfrac>
+															<mn>1</mn>
+															<mi>λ</mi>
+														</mfrac>
+														<mo>ln(1-U)</mo>
+													</mrow>
+												</math>
+											</th>
+										</tr>
+									</thead>
+									<tbody></tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</label>
 
+				<!-- E S T A D I S T I C A S -->
 				<label class="radio">
-					<input class="radio__input" type="radio" name="radio" />
+					<input class="radio__input" type="radio" name="radio" checked="" />
 					<span class="name">
 						<span class="pre-name"></span>
 						<span class="pos-name"></span>
-						<span> Prubes Estadísticas </span>
+						<span> Pruebas Estadísticas </span>
 					</span>
 					<div class="content">
 						<div>
-							<div>More content</div>
+							<div class="wrapper">
+								<div class="card-switch">
+									<div class="flip-card__inner">
+										<div class="flip-card__front">
+											<div class="title">Selecciona</div>
+											<form class="flip-card__form" action="">
+												<div class="distribucionCOMPContainer">
+													<label for="metodoSelect"
+														>Escoge el método a verificar</label
+													>
+													<select name="metodoSelect" id="metodoSelect">
+														<option value="transformada-inversa">
+															Transformada Inversa
+														</option>
+														<option value="convolucion">Convolucion</option>
+														<option value="composicion">Composicion</option>
+													</select>
+												</div>
+												<button class="btn-Estadisticos flip-card__btn">
+													Generar Prueba
+												</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</label>
@@ -205,5 +342,7 @@
 		</div>
 		<script src="js/range.js"></script>
 		<script type="module" src="js/convolucion.js"></script>
+		<script type="module" src="js/transformadaInversa.js"></script>
+		<script type="module" src="js/composicion.js"></script>
 	</body>
 </html>
