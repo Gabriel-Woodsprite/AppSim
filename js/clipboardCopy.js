@@ -1,4 +1,4 @@
-import { ui } from "./pseudoMethods.js";
+import { mcgUi } from "./pseudoMethods.js";
 
 export function clipboardCopy() {
 	let array = {};
@@ -20,7 +20,7 @@ export function clipboardCopy() {
 		console.log(botones);
 		botones.forEach(btn => {
 			btn.addEventListener("click", () => {
-				array = ui;
+				array = mcgUi;
 				const cantidad = parseInt(btn.dataset.count);
 				copiarPrimeros(cantidad);
 			});
