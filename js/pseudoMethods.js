@@ -84,20 +84,24 @@ function caApp(s1 = 0.1234, s2 = 0.5678, n = 10) {
 	fillTable(obj);
 	return obj;
 }
+//Lineal
 
 function clApp(s1 = 0.1234, s2 = 0.5678, n = 10) {
-	let results = [];
-	let seeds = [s1, s2];
+    let results = [];
+    let seeds = [s1, s2];
 
-	for (let i = 0; i < n; i++) {
-		let next = (seeds[seeds.length - 1] + seeds[seeds.length - 2]) % 1;
-		results.push(next);
-		seeds.push(next);
-	}
+    let a = s1;    // multiplicador tomado de la primera semilla
+    let x = s2;    // valor inicial tomado de la segunda semilla
 
-	const obj = { seeds, ui: results };
-	fillTable(obj);
-	return obj;
+    for (let i = 0; i < n; i++) {
+        x = (a * x) % 1; // fórmula congruencial lineal real
+        results.push(x);
+        seeds.push(x);
+    }
+
+    const obj = { seeds, ui: results };
+    fillTable(obj);
+    return obj;
 }
 
 function mcgApp() {
