@@ -1,16 +1,17 @@
 import {
-	cmApp,
-	mcApp,
-	pmApp,
-	caApp,
-	clApp,
-	mcgApp,
-	ccApp,
+	getCM,
+	getMC,
+	getPM,
+	getCA,
+	getCL,
+	getMCG,
+	getCC,
+	renderMetodo,
 } from "./pseudoMethods.js";
-import { clipboardCopy } from "./clipboardCopy.js";
-
+// import { clipboardCopy } from "./clipboardCopy.js";
 
 let psNumButton = document.querySelector(".psNumButton");
+let tableTittle = document.querySelector(".tableTittle");
 
 psNumButton.addEventListener("click", () => {
 	if (getCheckedRadio().length !== 0) {
@@ -18,7 +19,6 @@ psNumButton.addEventListener("click", () => {
 		section.classList.remove("hidden");
 		section.classList.add("notHidden");
 
-		
 		setTimeout(() => {
 			window.scrollTo({
 				top: document.body.scrollHeight,
@@ -29,25 +29,32 @@ psNumButton.addEventListener("click", () => {
 		// Llamamos a la función correcta según el radio seleccionado
 		switch (getCheckedRadio()) {
 			case "CM": //Cuadrados Medios
-				cmApp();
+				renderMetodo(getCM);
+				tableTittle.textContent = "Cuadrados Medios";
 				break;
 			case "MC": //Multiplicador Constante
-				mcApp();
+				renderMetodo(getMC);
+				tableTittle.textContent = "Multiplicador Constante";
 				break;
 			case "PM": //Productos Medios
-				pmApp();
+				renderMetodo(getPM);
+				tableTittle.textContent = "Productos Medios";
 				break;
 			case "CA": //Congruencial Aditivo
-				caApp();
+				renderMetodo(getCA);
+				tableTittle.textContent = "Congruencial Aditivo";
 				break;
 			case "CL": //Congruencial Lineal
-				clApp();
+				renderMetodo(getCL);
+				tableTittle.textContent = "Congruencial Lineal";
 				break;
 			case "MCG": //Congruencial Multiplicativo
-				mcgApp();
+				renderMetodo(getMCG);
+				tableTittle.textContent = "Congruencial Multiplicativo";
 				break;
 			case "CC": //Congruencial Cuadratico
-				ccApp();
+				renderMetodo(getCC);
+				tableTittle.textContent = "Congruencial Cuadrático";
 				break;
 			default:
 				break;
@@ -67,5 +74,4 @@ function getCheckedRadio() {
 	return generatorName;
 }
 
-
-clipboardCopy();
+// clipboardCopy();

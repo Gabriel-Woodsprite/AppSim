@@ -1,147 +1,178 @@
 import { fillTable } from "./fillTable.js";
 
-let mcgUi = [];
+/* ============================
+   🔹 Funciones Auxiliares
+=============================== */
 
 function getMiddleDigits(num, digits = 4) {
 	let str = num.toString();
-	while (str.length < digits) str = "0" + str; // rellena si es muy corto
+	while (str.length < digits) str = "0" + str;
 	const start = Math.floor((str.length - digits) / 2);
 	return parseInt(str.substr(start, digits));
 }
 
-function cmApp(seed = Date.now(), n = 10) {
-	// Cuadrados Medios
+/* ============================
+   🔹 Métodos getXXX() puros
+=============================== */
+
+function getCM(seed = Date.now(), n = 10) {
+	const m = 2 ** 32;
 	let results = [];
 	let seeds = [];
-	let current = seed;
+	let x = seed >>> 0; // aseguramos 32 bits
 
 	for (let i = 0; i < n; i++) {
-		let squared = current * current;
-		seeds.push(squared);
-		let mid = getMiddleDigits(squared);
-		results.push(parseFloat("0." + mid));
-		current = mid;
-	}
+		let sq = (x * x) >>> 0;
 
-	const obj = { seeds, ui: results };
-	fillTable(obj);
-	return obj;
+		// tomar 6 dígitos centrales, no 4
+		let mid = getMiddleDigits(sq, 6);
+
+		// mezcla extra
+		x = (mid ^ (sq >>> 5) ^ (x << 3)) >>> 0;
+
+		seeds.push(x);
+		results.push(x / m);
+	}
+	return { seeds, ui: results };
 }
 
-function mcApp(seed = Date.now(), constant = 5, n = 10) {
-	// Multiplicador Constante
+function getMC(seed = Date.now(), constant = 37, n = 10) {
+	const m = 2 ** 32;
 	let results = [];
 	let seeds = [];
-	let current = seed;
+	let x = seed >>> 0;
 
 	for (let i = 0; i < n; i++) {
-		let mult = current * constant;
-		seeds.push(mult);
-		let mid = getMiddleDigits(mult);
-		results.push(parseFloat("0." + mid));
-		current = mid;
+		let mult = (x * constant) >>> 0;
+		let mid = getMiddleDigits(mult, 6);
+
+		x = (mid + mult + (x << 5)) >>> 0;
+
+		seeds.push(x);
+		results.push(x / m);
 	}
 
-	const obj = { seeds, ui: results };
-	fillTable(obj);
-	return obj;
+	return { seeds, ui: results };
 }
 
-function pmApp(s1 = Date.now(), s2 = 5678, n = 10) {
-	// Productos Medios
-	let results = [];
+function getPM(s1 = Date.now(), s2 = performance.now(), n = 10) {
+	const m = 2 ** 32;
+
+	let x = s1 >>> 0;
+	let y = s2 >>> 0;
+
 	let seeds = [];
-	let current1 = s1;
-	let current2 = s2;
+	let results = [];
 
 	for (let i = 0; i < n; i++) {
-		let prod = current1 * current2;
-		seeds.push(prod);
-		let mid = getMiddleDigits(prod);
-		results.push(parseFloat("0." + mid));
-		current1 = current2;
-		current2 = mid;
+		let prod = (x * y) >>> 0;
+
+		let mid = getMiddleDigits(prod, 6);
+
+		// mezcla
+		let next = (mid ^ (prod >>> 7) ^ (x << 2) ^ (y << 3)) >>> 0;
+
+		seeds.push(next);
+		results.push(next / m);
+
+		x = y;
+		y = next;
 	}
 
-	const obj = { seeds, ui: results };
-	fillTable(obj);
-	return obj;
+	return { seeds, ui: results };
 }
-//---
 
-function caApp(s1 = 0.1234, s2 = 0.5678, n = 10) {
-	// Congruencial Aditivo
-	let results = [];
+function getCA(s1 = Math.random(), s2 = Math.random(), n = 10) {
 	let seeds = [s1, s2];
+	let results = [];
 
 	for (let i = 0; i < n; i++) {
-		let next = (seeds[seeds.length - 1] + seeds[seeds.length - 2]) % 1;
+		let next = (seeds.at(-1) + seeds.at(-2) + Math.random() * 0.000001) % 1;
+
 		results.push(next);
 		seeds.push(next);
 	}
 
-	const obj = { seeds, ui: results };
-	fillTable(obj);
-	return obj;
+	return { seeds, ui: results };
 }
 
-function clApp(s1 = 0.1234, s2 = 0.5678, n = 10) {
-	let results = [];
-	let seeds = [s1, s2];
-
-	for (let i = 0; i < n; i++) {
-		let next = (seeds[seeds.length - 1] + seeds[seeds.length - 2]) % 1;
-		results.push(next);
-		seeds.push(next);
-	}
-
-	const obj = { seeds, ui: results };
-	fillTable(obj);
-	return obj;
-}
-
-function mcgApp() {
-	let values = getMCG(Date.now(), 100);
-	mcgUi = values.ui;
-	fillTable(values);
-}
-function ccApp(seed = Date.now(), n = 10) {
+function getCL(
+	seed = Date.now(),
+	a = 1664525,
+	c = 1013904223,
+	m = 2 ** 32,
+	n = 10,
+) {
+	let x = seed >>> 0;
 	let results = [];
 	let seeds = [];
-	let current = seed;
 
 	for (let i = 0; i < n; i++) {
-		let squared = current * current;
-		seeds.push(squared);
+		x = (a * x + c) % m;
 
-		let mid = getMiddleDigits(squared);
-		results.push(parseFloat("0." + mid));
+		// mezcla XOR extra
+		x = (x ^ (x >>> 13) ^ (x << 7)) >>> 0;
 
-		current = mid;
+		seeds.push(x);
+		results.push(x / m);
 	}
 
-	const obj = { seeds, ui: results };
-	fillTable(obj);
-	return obj;
+	return { seeds, ui: results };
 }
 
-function getMCG(seed, iterations) {
-	const a = 1664525; // Buena constante usada por glibc
-	const c = 1013904223; // Para mejorar el periodo
-	const m = 2 ** 32; // Módulo estándar
+function getMCG(seed = Date.now(), iterations = 10) {
+	const a = 1664525;
+	const m = 2 ** 32;
 
-	let x = seed;
+	let x = seed >>> 0;
 	let seeds = [];
 	let ui = [];
 
 	for (let i = 0; i < iterations; i++) {
-		x = (a * x + c) % m;
-		seeds[i] = x;
-		ui[i] = x / m; // Normalizado 0–1
+		x = (a * x) % m;
+
+		// whitening (mezcla)
+		x = (x ^ (x >>> 16)) >>> 0;
+
+		seeds.push(x);
+		ui.push(x / m);
 	}
 
 	return { seeds, ui };
 }
 
-export { getMCG, mcgUi };
-export { cmApp, mcApp, pmApp, caApp, clApp, mcgApp, ccApp };
+function getCC(seed = Date.now(), n = 10) {
+	const m = 2 ** 32;
+	let results = [];
+	let seeds = [];
+	let x = seed >>> 0;
+
+	for (let i = 0; i < n; i++) {
+		let sq = (x * x) >>> 0;
+
+		let mid = getMiddleDigits(sq, 6);
+
+		x = (mid + (sq >>> 8) + (x << 4)) >>> 0;
+
+		seeds.push(x);
+		results.push(x / m);
+	}
+
+	return { seeds, ui: results };
+}
+
+/* ============================
+   🔹 Función ÚNICA para llenar tabla
+=============================== */
+
+function renderMetodo(methodFunction, ...args) {
+	const result = args.length > 0 ? methodFunction(...args) : methodFunction();
+	fillTable(result);
+	return result;
+}
+
+/* ============================
+   🔹 Exports
+=============================== */
+
+export { getCM, getMC, getPM, getCA, getCL, getMCG, getCC, renderMetodo };
