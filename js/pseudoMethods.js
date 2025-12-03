@@ -81,6 +81,8 @@ function getPM(s1 = Date.now(), s2 = performance.now(), n = 10) {
 
 	return { seeds, ui: results };
 }
+//Lineal
+
 
 function getCA(s1 = Math.random(), s2 = Math.random(), n = 10) {
 	let seeds = [s1, s2];

@@ -66,17 +66,18 @@ function congruencialAditivoN(semilla, cantidad) {
 //Metodo congruencial lineal
 function congruencialLinealN(semillas, cantidad) {
     const resultados = [];
-    let S = [...semillas]; // NO tocar semillas originales
+
+    let a = semillas[0];       // primer valor ingresado
+    let x = semillas[1];       // segundo valor ingresado
 
     for (let i = 0; i < cantidad; i++) {
-        let next = (S[S.length - 1] + S[S.length - 2]) % 1;
-        resultados.push(next);
-        S.shift();
-        S.push(next);
+        x = (a * x) % 1;       // fórmula del método lineal
+        resultados.push(x);
     }
 
     return resultados;
 }
+
 //Metodo congruencial cuadratico
 function congruencialCuadraticoN(semilla, cantidad) {
     let x = semilla;
