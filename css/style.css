@@ -45,8 +45,9 @@
 }
 
 .psNumButton {
-	width: 20%;
-	height: 10%;
+	display: inline-block; /* se ajusta al contenido */
+	width: auto;
+	height: auto;
 	font-size: 20px;
 	padding: 5px 10px;
 	margin-top: 10px;
@@ -56,6 +57,7 @@
 	background: #4ade80;
 	transition: all 0.3s ease;
 	cursor: pointer;
+	white-space: nowrap; /* evita que haga saltos de línea */
 }
 
 .psNumButton:hover {
@@ -83,8 +85,6 @@
 
 .copyButtonsContainer {
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	gap: 2rem;
 }
 
@@ -95,4 +95,13 @@
 	background: white;
 	border: 2px solid #000;
 	box-shadow: 6px 6px 0 #000;
+}
+
+.actionsContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.statTestContainer {
 }

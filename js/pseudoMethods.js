@@ -15,7 +15,7 @@ function getMiddleDigits(num, digits = 4) {
    🔹 Métodos getXXX() puros
 =============================== */
 
-function getCM(seed = Date.now(), n = 10) {
+function getCM(seed = Date.now(), n = 100) {
 	const m = 2 ** 32;
 	let results = [];
 	let seeds = [];
@@ -36,7 +36,7 @@ function getCM(seed = Date.now(), n = 10) {
 	return { seeds, ui: results };
 }
 
-function getMC(seed = Date.now(), constant = 37, n = 10) {
+function getMC(seed = Date.now(), constant = 37, n = 100) {
 	const m = 2 ** 32;
 	let results = [];
 	let seeds = [];
@@ -55,7 +55,7 @@ function getMC(seed = Date.now(), constant = 37, n = 10) {
 	return { seeds, ui: results };
 }
 
-function getPM(s1 = Date.now(), s2 = performance.now(), n = 10) {
+function getPM(s1 = Date.now(), s2 = performance.now(), n = 100) {
 	const m = 2 ** 32;
 
 	let x = s1 >>> 0;
@@ -83,8 +83,7 @@ function getPM(s1 = Date.now(), s2 = performance.now(), n = 10) {
 }
 //Lineal
 
-
-function getCA(s1 = Math.random(), s2 = Math.random(), n = 10) {
+function getCA(s1 = Math.random(), s2 = Math.random(), n = 100) {
 	let seeds = [s1, s2];
 	let results = [];
 
@@ -103,7 +102,7 @@ function getCL(
 	a = 1664525,
 	c = 1013904223,
 	m = 2 ** 32,
-	n = 10,
+	n = 100,
 ) {
 	let x = seed >>> 0;
 	let results = [];
@@ -143,7 +142,7 @@ function getMCG(seed = Date.now(), iterations = 10) {
 	return { seeds, ui };
 }
 
-function getCC(seed = Date.now(), n = 10) {
+function getCC(seed = Date.now(), n = 100) {
 	const m = 2 ** 32;
 	let results = [];
 	let seeds = [];

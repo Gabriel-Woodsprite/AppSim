@@ -8,10 +8,13 @@ import {
 	getCC,
 	renderMetodo,
 } from "./pseudoMethods.js";
+import { generateStatisticTest } from "./prTest.js";
 // import { clipboardCopy } from "./clipboardCopy.js";
 
-let psNumButton = document.querySelector(".psNumButton");
+let psNumButton = document.querySelector(".actionpsNumButton");
+let statTest = document.querySelector(".statTestButton");
 let tableTittle = document.querySelector(".tableTittle");
+let currentNumbers = {};
 
 psNumButton.addEventListener("click", () => {
 	if (getCheckedRadio().length !== 0) {
@@ -29,37 +32,41 @@ psNumButton.addEventListener("click", () => {
 		// Llamamos a la función correcta según el radio seleccionado
 		switch (getCheckedRadio()) {
 			case "CM": //Cuadrados Medios
-				renderMetodo(getCM);
+				currentNumbers = renderMetodo(getCM);
 				tableTittle.textContent = "Cuadrados Medios";
 				break;
 			case "MC": //Multiplicador Constante
-				renderMetodo(getMC);
+				currentNumbers = renderMetodo(getMC);
 				tableTittle.textContent = "Multiplicador Constante";
 				break;
 			case "PM": //Productos Medios
-				renderMetodo(getPM);
+				currentNumbers = renderMetodo(getPM);
 				tableTittle.textContent = "Productos Medios";
 				break;
 			case "CA": //Congruencial Aditivo
-				renderMetodo(getCA);
+				currentNumbers = renderMetodo(getCA);
 				tableTittle.textContent = "Congruencial Aditivo";
 				break;
 			case "CL": //Congruencial Lineal
-				renderMetodo(getCL);
+				currentNumbers = renderMetodo(getCL);
 				tableTittle.textContent = "Congruencial Lineal";
 				break;
 			case "MCG": //Congruencial Multiplicativo
-				renderMetodo(getMCG);
+				currentNumbers = renderMetodo(getMCG);
 				tableTittle.textContent = "Congruencial Multiplicativo";
 				break;
 			case "CC": //Congruencial Cuadratico
-				renderMetodo(getCC);
+				currentNumbers = renderMetodo(getCC);
 				tableTittle.textContent = "Congruencial Cuadrático";
 				break;
 			default:
 				break;
 		}
 	}
+});
+
+statTest.addEventListener("click", () => {
+	console.log(generateStatisticTest(currentNumbers.ui));
 });
 
 // Función para obtener qué radio está seleccionado
