@@ -1,5 +1,4 @@
 export function fillTable(values, htmlClass = null) {
-	console.log(htmlClass);
 	const tbody = document.querySelector(
 		htmlClass == null
 			? ".table-retro tbody"
