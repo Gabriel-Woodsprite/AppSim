@@ -4,7 +4,6 @@ export function fillTable(values, htmlClass = null) {
 			? ".table-retro tbody"
 			: `.${htmlClass} .table-retro tbody`,
 	);
-	console.log(tbody);
 	tbody.innerHTML = "";
 
 	// Detectar si la tabla es MCG (semillas + ui)

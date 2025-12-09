@@ -66,7 +66,12 @@ psNumButton.addEventListener("click", () => {
 });
 
 statTest.addEventListener("click", () => {
-	console.log(generateStatisticTest(currentNumbers.ui));
+	// console.log(generateStatisticTest(currentNumbers.ui));
+	console.log(
+		generateStatisticTest([
+			0.12, 0.55, 0.31, 0.31, 0.8, 0.44, 0.67, 0.09, 0.22, 0.99,
+		]),
+	);
 });
 
 // Función para obtener qué radio está seleccionado
