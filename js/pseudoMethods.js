@@ -121,7 +121,7 @@ function getCL(
 	return { seeds, ui: results };
 }
 
-function getMCG(seed = Date.now(), iterations = 10) {
+function getMCG(seed = Date.now(), iterations = 100) {
 	const a = 1664525;
 	const m = 2 ** 32;
 

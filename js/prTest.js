@@ -69,11 +69,6 @@ function getRuns(numbers) {
 	let v = (16 * n - 29) / 90;
 	let z = (totalRuns - e) / Math.sqrt(v);
 
-	console.log(`signos = ${signs.join(" ")}`);
-	console.log(
-		`Corridas = ${totalRuns}, Esperado = ${e}, Varianza = ${v}, Z = ${z}`,
-	);
-
 	return {
 		v: v,
 		z: z,
@@ -85,35 +80,33 @@ function getAutocorrelation(numbers) {
 	let n = numbers.length;
 	let k = 2;
 
-	let mean = sumArrayElements(numbers) / n;
+	let mean = sumArrayElements([...numbers]) / n;
 
-	let xi = numbers;
-	let xi_K = [...numbers.slice(2, numbers.length - 1)];
-	let xi_mean = [
-		xi.forEach(element => {
-			element -= mean;
-		}),
-	];
-	let xi_K_mean = [
-		xi_K.foreach(element => {
-			element - mean;
-		}),
-	];
+	let xi = [...numbers].slice(0, numbers.length - 2);
+	let xi_K = [...numbers].slice(2, numbers.length);
+
+	// X_i MINUS MEAN
+	xi.forEach((number, index, array) => {
+		array[index] = number - mean;
+	});
+
+	// X_i_K MINUS MEAN
+	xi_K.forEach((number, index, array) => {
+		array[index] = number - mean;
+	});
+
 	let product = [];
-	for (let i = 0; i < n; i++) {
-		product.push(xi_mean[i] * xi_K_mean[i]);
+	for (let i = product; i < xi.length; i++) {
+		product[i] = xi[i] * xi_K[i];
 	}
-
 	let numerator = sumArrayElements(product);
 
-	console.log(numerator);
+	let productDen = [...numbers];
 
-	let denominatorTable = {
-		xi: [],
-		xi_mean: [],
-		squared: [],
-	};
-	let denominator = sumArrayElements(denominatorTable.squared);
+	productDen.forEach((number, index, array) => {
+		array[index] = (number - mean) * (number - mean);
+	});
+	let denominator = sumArrayElements(productDen);
 
 	let rk = numerator / denominator;
 	let z = rk * Math.sqrt(n);

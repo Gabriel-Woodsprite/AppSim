@@ -66,12 +66,33 @@ psNumButton.addEventListener("click", () => {
 });
 
 statTest.addEventListener("click", () => {
-	// console.log(generateStatisticTest(currentNumbers.ui));
-	console.log(
-		generateStatisticTest([
-			0.12, 0.55, 0.31, 0.31, 0.8, 0.44, 0.67, 0.09, 0.22, 0.99,
-		]),
-	);
+	let ks_d = document.querySelector(".ks-D");
+	let ks_Dcrit = document.querySelector(".ks-Dcrit");
+	let ks_pass = document.querySelector(".ks-pass");
+
+	let runs_v = document.querySelector(".runs-v");
+	let runs_z = document.querySelector(".runs-z");
+	let runs_pass = document.querySelector(".runs-pass");
+
+	let auto_rk = document.querySelector(".auto-rk");
+	let auto_z = document.querySelector(".auto-z");
+	let auto_pass = document.querySelector(".auto-pass");
+
+	let testResults = generateStatisticTest(currentNumbers.ui);
+
+	ks_d.textContent = testResults.ksResult.D;
+	ks_Dcrit.textContent = testResults.ksResult.Dcrit;
+	ks_pass.textContent = testResults.ksResult.pass ? "Pasa" : "No pasa";
+
+	runs_v.textContent = testResults.runsResult.v;
+	runs_z.textContent = testResults.runsResult.z;
+	runs_pass.textContent = testResults.runsResult.pass ? "Pasa" : "No pasa";
+
+	auto_rk.textContent = testResults.autoCorrelationResult.rk;
+	auto_z.textContent = testResults.autoCorrelationResult.z;
+	auto_pass.textContent = testResults.autoCorrelationResult.pass
+		? "Pasa"
+		: "No pasa";
 });
 
 // Función para obtener qué radio está seleccionado

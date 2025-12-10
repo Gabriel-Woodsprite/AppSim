@@ -370,6 +370,49 @@
 						<button class="psNumButton statTestButton">
 							Prueba Estadística
 						</button>
+						<div class="testTable">
+							<table class="tabla-pruebas">
+								<thead>
+									<tr>
+										<th>Prueba</th>
+										<th>Estadísticos</th>
+										<th>¿Aprueba?</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<!-- KS -->
+									<tr>
+										<td>Kolmogorov–Smirnov</td>
+										<td>
+											D = <span class="ks-D"></span><br />
+											D<sub>crit</sub> = <span class="ks-Dcrit"></span>
+										</td>
+										<td class="ks-pass"></td>
+									</tr>
+
+									<!-- Runs -->
+									<tr>
+										<td>Runs (Arriba/Abajo)</td>
+										<td>
+											V = <span class="runs-v"></span><br />
+											Z = <span class="runs-z"></span>
+										</td>
+										<td class="runs-pass"></td>
+									</tr>
+
+									<!-- Autocorrelación -->
+									<tr>
+										<td>Autocorrelación</td>
+										<td>
+											r<sub>k</sub> = <span class="auto-rk"></span><br />
+											Z = <span class="auto-z"></span>
+										</td>
+										<td class="auto-pass"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -62,3 +62,32 @@
 .table-retro tbody tr:last-child td {
 	border-bottom: none;
 }
+
+/* ----------------------------------- */
+/*   TABLAS PRUEBAS ESTADÌSTICAS       */
+/* ----------------------------------- */
+
+.tabla-pruebas {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+	font-family: Arial;
+	font-size: 14px;
+}
+.tabla-pruebas th,
+.tabla-pruebas td {
+	border: 1px solid #aaa;
+	padding: 8px 12px;
+	text-align: left;
+}
+.tabla-pruebas th {
+	background: #f0f0f0;
+}
+.pass-true {
+	color: green;
+	font-weight: bold;
+}
+.pass-false {
+	color: red;
+	font-weight: bold;
+}
