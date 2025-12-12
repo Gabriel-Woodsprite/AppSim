@@ -1,4 +1,4 @@
-export function generateStatisticTest(numbers) {
+function generateStatisticTest(numbers) {
 	let results = {
 		ksResult: {},
 		runsResult: {},
@@ -117,6 +117,77 @@ function getAutocorrelation(numbers) {
 	};
 }
 
+function getChiSq(numbers) {
+	// Cantidad de intervalos
+	let k = 5;
+	let df = k - 1;
+	let n = numbers.length;
+	let E = n / k; // Frecuencia esperada
+
+	// Tabla chi-cuadrada para alfa = 0.05
+	const chiSquareCritical = {
+		1: 3.841,
+		2: 5.991,
+		3: 7.815,
+		4: 9.488,
+		5: 11.07,
+		6: 12.592,
+		7: 14.067,
+		8: 15.507,
+		9: 16.919,
+		10: 18.307,
+	};
+
+	// Contadores para los intervalos
+	let intervalCount = {
+		int1: 0, // [0.0, 0.2)
+		int2: 0, // [0.2, 0.4)
+		int3: 0, // [0.4, 0.6)
+		int4: 0, // [0.6, 0.8)
+		int5: 0, // [0.8, 1.0)
+	};
+
+	// Clasificar números en intervalos
+	for (let i = 0; i < n; i++) {
+		let x = numbers[i];
+
+		if (x >= 0 && x < 0.2) intervalCount.int1++;
+		else if (x >= 0.2 && x < 0.4) intervalCount.int2++;
+		else if (x >= 0.4 && x < 0.6) intervalCount.int3++;
+		else if (x >= 0.6 && x < 0.8) intervalCount.int4++;
+		else if (x >= 0.8 && x < 1.0) intervalCount.int5++;
+	}
+
+	// Convertir a arreglo O[i]
+	const O = [
+		intervalCount.int1,
+		intervalCount.int2,
+		intervalCount.int3,
+		intervalCount.int4,
+		intervalCount.int5,
+	];
+
+	// Calcular chi-cuadrada
+	let chiCalc = 0;
+	for (let i = 0; i < k; i++) {
+		chiCalc += Math.pow(O[i] - E, 2) / E;
+	}
+
+	let chiCrit = chiSquareCritical[df];
+	let pass = chiCalc < chiCrit;
+
+	return {
+		observed: O,
+		expected: E,
+		chiCalc: chiCalc,
+		chiCrit: chiCrit,
+		df: df,
+		pass: pass,
+	};
+}
+
 function sumArrayElements(array) {
 	return array.reduce((c, currentV) => c + currentV, 0);
 }
+
+export { generateStatisticTest, getKs, getChiSq };

@@ -1,4 +1,4 @@
-import { fillTable } from "./fillTable.js";
+import { fillTable } from "./util/fillTable.js";
 
 /* ============================
    🔹 Funciones Auxiliares

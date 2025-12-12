@@ -12,13 +12,16 @@
 			<!-- From Uiverse.io by german_7619 -->
 
 			<div class="radio-inputs">
+				<!-- BOTÓN VOLVER -->
 				<button
 					class="go-back-in-tabs"
 					onclick="window.location.href='index.html'">
 					← Volver
 				</button>
+				<!-- T R A N S F O R M A D A -->
 				<label class="radio">
 					<input class="radio__input" type="radio" name="radio" checked="" />
+					<!-- WINDOW -->
 					<span class="name">
 						<span class="pre-name"></span>
 						<span class="pos-name"></span>
@@ -29,54 +32,36 @@
 							<!-- From Uiverse.io by andrew-demchenk0 -->
 							<!-- T R A N S F O R M A D A  I N V E R S A -->
 							<div class="wrapper">
-								<div class="card-switch">
-									<div class="flip-card__inner">
-										<div class="flip-card__front">
-											<div class="title">Ingresa tus datos</div>
-											<form class="flip-card__form" action="">
-												<div class="distribucionTIContainer">
-													<label for="distribucionSelect"
-														>Escoge el tipo de distribución</label
-													>
-													<select
-														name="distribucionSelect"
-														id="distribucionSelect">
-														<option value="uniforme" disabled>Uniforme</option>
-														<option value="exponencial" selected>
-															Exponencial
-														</option>
-														<option value="triangular" disabled>
-															Triangular
-														</option>
-														<option value="binomial" disabled>Binomial</option>
-													</select>
-												</div>
-												<input
-													aria-required="true"
-													required
-													class="flip-card__input lambda"
-													name="lambda"
-													placeholder="Taza de Ocurrencia (λ)"
-													type="text" />
-												<div class="rangeContainer">
-													<label for="range-TI">Cantidad de Numeros</label>
-													<span id="rangeValue">15</span>
-													<input
-														aria-required="true"
-														required
-														class="range-TI"
-														type="range"
-														value="15"
-														min="10"
-														max="100"
-														step="10"
-														name="cantidad"
-														id="range-TI" />
-												</div>
-												<button class="flip-card__btn btn-TI">Calcular</button>
-											</form>
+								<div class="flip-card__front">
+									<div class="title">Ingresa tus datos</div>
+									<form class="flip-card__form" action="">
+										<!-- NUMBER INPUT -->
+										<input
+											aria-required="true"
+											required
+											class="flip-card__input lambda"
+											name="lambda"
+											placeholder="Taza de Ocurrencia (λ)"
+											type="text" />
+
+										<!-- RANGE INPUT -->
+										<div class="rangeContainer">
+											<label for="range-TI">Cantidad de Numeros</label>
+											<span id="range-TI">20</span>
+											<input
+												required
+												class="range-TI"
+												type="range"
+												value="20"
+												min="10"
+												max="100"
+												step="10"
+												name="cantidad"
+												id="range-TI"
+												data-display="range-TI" />
 										</div>
-									</div>
+										<button class="flip-card__btn btn-TI">Calcular</button>
+									</form>
 								</div>
 							</div>
 							<div class="ti-table">
@@ -101,9 +86,44 @@
 									<tbody></tbody>
 								</table>
 							</div>
+							<div class="get-TI-Test">
+								<button class="flip-card__btn btn-TI-test">
+									Prueba estadística
+								</button>
+								<div class="testTable">
+									<table class="tabla-pruebas">
+										<thead>
+											<tr>
+												<th>Prueba</th>
+												<th>Estadísticos</th>
+												<th>¿Aprueba?</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Uniformidad (KS)</td>
+												<td>
+													D = <span class="ks-D"></span><br />
+													D<sub>crit</sub> = <span class="ks-Dcrit"></span>
+												</td>
+												<td class="ks-pass"></td>
+											</tr>
+											<tr>
+												<td>Bondad (KS)</td>
+												<td>
+													D = <span class="ks-D"></span><br />
+													D<sub>crit</sub> = <span class="ks-Dcrit"></span>
+												</td>
+												<td class="bond-pass"></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
 						</div>
 					</div>
 				</label>
+				<!-- C O N V O L U C I Ó N -->
 				<label class="radio">
 					<input class="radio__input" type="radio" name="radio" />
 					<span class="name">
@@ -115,63 +135,42 @@
 						<div>
 							<!-- From Uiverse.io by andrew-demchenk0 -->
 							<div class="wrapper">
-								<div class="card-switch">
-									<div class="flip-card__inner">
-										<div class="flip-card__front">
-											<div class="title">Ingresa tus datos</div>
-											<form class="flip-card__form" action="">
-												<input
-													aria-required="true"
-													required
-													class="flip-card__input sigma"
-													name="sigma"
-													placeholder="σ"
-													type="text" />
-												<input
-													aria-required="true"
-													required
-													class="flip-card__input mu"
-													name="mu"
-													placeholder="μ"
-													type="text" />
-												<div class="rangeContainer">
-													<label for="myRange">Cantidad de Numeros</label>
-													<span id="rangeValue">15</span>
-													<input
-														aria-required="true"
-														required
-														class="myRange"
-														type="range"
-														value="15"
-														min="10"
-														max="100"
-														step="10"
-														name="cantidad"
-														id="myRange" />
-												</div>
-												<div class="variableRangeContainer">
-													<label for="variablesRange"
-														>Variables Generadas
-													</label>
-													<span id="variableValue">15</span>
-													<input
-														aria-required="true"
-														required
-														class="variablesRange"
-														type="range"
-														value="5"
-														min="5"
-														max="10"
-														step="1"
-														name="cantidad"
-														id="variablesRange" />
-												</div>
-												<button class="flip-card__btn btn-CONV">
-													Calcular
-												</button>
-											</form>
+								<div class="flip-card__front">
+									<div class="title">Ingresa tus datos</div>
+									<form class="flip-card__form" action="">
+										<input
+											aria-required="true"
+											required
+											class="flip-card__input sigma"
+											name="sigma"
+											placeholder="σ"
+											type="text" />
+										<input
+											aria-required="true"
+											required
+											class="flip-card__input mu"
+											name="mu"
+											placeholder="μ"
+											type="text" />
+
+										<div class="variableRangeContainer">
+											<label for="variablesRange">Variables Generadas </label>
+											<span id="variableValue">15</span>
+											<input
+												aria-required="true"
+												required
+												class="variablesRange"
+												type="range"
+												value="5"
+												min="5"
+												max="10"
+												step="1"
+												name="cantidad"
+												id="variablesRange"
+												data-display="variableValue" />
 										</div>
-									</div>
+										<button class="flip-card__btn btn-CONV">Calcular</button>
+									</form>
 								</div>
 							</div>
 							<div class="conv-table">
@@ -185,9 +184,38 @@
 									<tbody></tbody>
 								</table>
 							</div>
+							<div class="get-CONV-Test">
+								<button class="flip-card__btn btn-CONV-test">
+									Prueba estadística
+								</button>
+								<div class="testTable">
+									<table class="tabla-pruebas">
+										<thead>
+											<tr>
+												<th>Prueba</th>
+												<th>Estadísticos</th>
+												<th>¿Aprueba?</th>
+											</tr>
+										</thead>
+
+										<tbody>
+											<!-- KS -->
+											<tr>
+												<td>Kolmogorov–Smirnov</td>
+												<td>
+													D = <span class="ks-CONV-D"></span><br />
+													D<sub>crit</sub> = <span class="ks-CONV-Dcrit"></span>
+												</td>
+												<td class="ks-CONV-pass"></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
 						</div>
 					</div>
 				</label>
+				<!-- C O M P O S I C I Ó N -->
 				<label class="radio">
 					<input class="radio__input" type="radio" name="radio" />
 					<span class="name">
@@ -199,78 +227,61 @@
 					<div class="content">
 						<div>
 							<div class="wrapper">
-								<div class="card-switch">
-									<div class="flip-card__inner">
-										<div class="flip-card__front">
-											<div class="title">Ingresa tus datos</div>
-											<form class="flip-card__form" action="">
-												<div class="distribucionCOMPContainer">
-													<label for="distribucionSelect"
-														>Escoge el primer tipo de distribución</label
-													>
-													<select
-														name="distribucionSelect"
-														id="distribucionSelect">
-														<option value="uniforme" disabled>Uniforme</option>
-														<option value="exponencial" selected>
-															Exponencial
-														</option>
-														<option value="triangular" disabled>
-															Triangular
-														</option>
-														<option value="binomial" disabled>Binomial</option>
-													</select>
-												</div>
-												<div class="distribucionCOMPContainer">
-													<label for="distribucionSelect"
-														>Escoge el segundo tipo de distribución</label
-													>
-													<select
-														name="distribucionSelect"
-														id="distribucionSelect">
-														<option value="uniforme" disabled>Uniforme</option>
-														<option value="exponencial" selected>
-															Exponencial
-														</option>
-														<option value="triangular" disabled>
-															Triangular
-														</option>
-														<option value="binomial" disabled>Binomial</option>
-													</select>
-												</div>
-												<input
-													aria-required="true"
-													required
-													class="flip-card__input probabilidad"
-													name="probabilidad"
-													placeholder="Probabilidad (%)"
-													type="text" />
-												<input
-													aria-required="true"
-													required
-													class="flip-card__input lambda-comp"
-													name="lambda-COMP"
-													placeholder="Taza de Ocurrencia (λ)"
-													type="text" />
-												<div class="rangeContainer">
-													<label for="range-COMP">Cantidad de Numeros</label>
-													<span id="rangeValue">15</span>
-													<input
-														aria-required="true"
-														required
-														class="range-COMP"
-														type="range"
-														value="15"
-														min="10"
-														max="100"
-														step="10"
-														name="cantidad"
-														id="range-COMP" />
-												</div>
-												<button class="btn-CMP flip-card__btn">Calcular</button>
-											</form>
+								<div class="flip-card__front">
+									<div class="title">Ingresa tus datos</div>
+									<form class="flip-card__form" action="">
+										<div class="distribucionCOMPContainer">
+											<label for="distribucionSelect"
+												>Escoge el primer tipo de distribución</label
+											>
+											<select name="distribucionSelect" id="distribucionSelect">
+												<option value="geometrica">Geometrica</option>
+												<option value="exponencial" selected>
+													Exponencial
+												</option>
+											</select>
 										</div>
-									</div>
+										<div class="distribucionCOMPContainer">
+											<label for="distribucionSelect"
+												>Escoge el segundo tipo de distribución</label
+											>
+											<select name="distribucionSelect" id="distribucionSelect">
+												<option value="geometrica" selected>Geometrica</option>
+												<option value="exponencial">Exponencial</option>
+											</select>
+										</div>
+										<input
+											aria-required="true"
+											required
+											class="flip-card__input probabilidad"
+											name="probabilidad"
+											placeholder="Probabilidad (%)"
+											type="text" />
+										<input
+											aria-required="true"
+											required
+											class="flip-card__input lambda-comp"
+											name="lambda-COMP"
+											placeholder="Taza de Ocurrencia (λ)"
+											type="text" />
+										<div class="rangeContainer">
+											<label for="range-COMP">Cantidad de Numeros</label>
+											<span id="compValue">15</span>
+											<input
+												aria-required="true"
+												required
+												class="range-COMP"
+												type="range"
+												value="15"
+												min="10"
+												max="100"
+												step="10"
+												name="cantidad"
+												id="range-COMP"
+												data-display="compValue" />
+										</div>
+										<button class="btn-CMP flip-card__btn">Calcular</button>
+									</form>
 								</div>
 							</div>
 							<div class="comp-table">
@@ -295,44 +306,32 @@
 									<tbody></tbody>
 								</table>
 							</div>
-						</div>
-					</div>
-				</label>
+							<div class="get-COMP-Test">
+								<button class="flip-card__btn btn-CMP-test">
+									Prueba estadística
+								</button>
+								<div class="testTable">
+									<table class="tabla-pruebas">
+										<thead>
+											<tr>
+												<th>Prueba</th>
+												<th>Estadísticos</th>
+												<th>¿Aprueba?</th>
+											</tr>
+										</thead>
 
-				<!-- E S T A D I S T I C A S -->
-				<label class="radio">
-					<input class="radio__input" type="radio" name="radio" />
-					<span class="name">
-						<span class="pre-name"></span>
-						<span class="pos-name"></span>
-						<span> Pruebas Estadísticas </span>
-					</span>
-					<div class="content">
-						<div>
-							<div class="wrapper">
-								<div class="card-switch">
-									<div class="flip-card__inner">
-										<div class="flip-card__front">
-											<div class="title">Selecciona</div>
-											<form class="flip-card__form" action="">
-												<div class="distribucionCOMPContainer">
-													<label for="metodoSelect"
-														>Escoge el método a verificar</label
-													>
-													<select name="metodoSelect" id="metodoSelect">
-														<option value="transformada-inversa">
-															Transformada Inversa
-														</option>
-														<option value="convolucion">Convolucion</option>
-														<option value="composicion">Composicion</option>
-													</select>
-												</div>
-												<button class="btn-Estadisticos flip-card__btn">
-													Generar Prueba
-												</button>
-											</form>
-										</div>
-									</div>
+										<tbody>
+											<!-- KS -->
+											<tr>
+												<td>Kolmogorov–Smirnov</td>
+												<td>
+													D = <span class="ks-COMP-D"></span><br />
+													D<sub>crit</sub> = <span class="ks-COMP-Dcrit"></span>
+												</td>
+												<td class="ks-COMP-pass"></td>
+											</tr>
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>
@@ -340,9 +339,7 @@
 				</label>
 			</div>
 		</div>
+		<script type="module" src="js/varsApp.js"></script>
 		<script src="js/range.js"></script>
-		<script type="module" src="js/convolucion.js"></script>
-		<script type="module" src="js/transformadaInversa.js"></script>
-		<script type="module" src="js/composicion.js"></script>
 	</body>
 </html>

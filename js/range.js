@@ -1,21 +1,16 @@
-const rangeInput = document.getElementById("myRange");
-const rangeValueDisplay = document.getElementById("rangeValue");
+// Selecciona todos los sliders que tengan un span asociado mediante el atributo data-display
+document
+	.querySelectorAll('input[type="range"][data-display]')
+	.forEach(slider => {
+		// ID del span que mostrará el valor
+		const displayId = slider.getAttribute("data-display");
+		const displayElement = document.getElementById(`${displayId}`);
 
-// Set initial display value
-rangeValueDisplay.textContent = rangeInput.value;
+		// Valor inicial
+		displayElement.textContent = slider.value;
 
-// Update display value on input
-rangeInput.addEventListener("input", () => {
-	rangeValueDisplay.textContent = rangeInput.value;
-});
-
-const variableRange = document.getElementById("variablesRange");
-const variablesRangeDisplay = document.getElementById("variableValue");
-
-// Set initial display value
-variablesRangeDisplay.textContent = variableRange.value;
-
-// Update display value on input
-variableRange.addEventListener("input", () => {
-	variablesRangeDisplay.textContent = variableRange.value;
-});
+		// Actualización dinámica
+		slider.addEventListener("input", () => {
+			displayElement.textContent = slider.value;
+		});
+	});
