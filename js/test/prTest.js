@@ -46,6 +46,36 @@ function getKs(numbers) {
 	};
 }
 
+function getKsGeneral(numbers, cdf) {
+	let n = numbers.length;
+	if (n < 2) return false;
+
+	let sorted = [...numbers].sort((a, b) => a - b);
+
+	let Dplus = 0;
+	let Dminus = 0;
+
+	for (let i = 1; i <= n; i++) {
+		let x = sorted[i - 1];
+		let F = cdf(x);
+
+		let Femp = i / n;
+		let FempAnterior = (i - 1) / n;
+
+		Dplus = Math.max(Dplus, Femp - F);
+		Dminus = Math.max(Dminus, F - FempAnterior);
+	}
+
+	let D = Math.max(Dplus, Dminus);
+	let Dcrit = 1.36 / Math.sqrt(n);
+
+	return {
+		D,
+		Dcrit,
+		pass: D < Dcrit,
+	};
+}
+
 function getRuns(numbers) {
 	let signs = [];
 
@@ -190,4 +220,4 @@ function sumArrayElements(array) {
 	return array.reduce((c, currentV) => c + currentV, 0);
 }
 
-export { generateStatisticTest, getKs, getChiSq };
+export { generateStatisticTest, getKs, getKsGeneral, getChiSq };

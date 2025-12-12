@@ -103,18 +103,18 @@
 											<tr>
 												<td>Uniformidad (KS)</td>
 												<td>
-													D = <span class="ks-D"></span><br />
-													D<sub>crit</sub> = <span class="ks-Dcrit"></span>
+													D = <span class="ks-TI-D"></span><br />
+													D<sub>crit</sub> = <span class="ks-TI-Dcrit"></span>
 												</td>
-												<td class="ks-pass"></td>
+												<td class="ks-TI-pass"></td>
 											</tr>
 											<tr>
 												<td>Bondad (KS)</td>
 												<td>
-													D = <span class="ks-D"></span><br />
-													D<sub>crit</sub> = <span class="ks-Dcrit"></span>
+													D = <span class="bond-TI-D"></span><br />
+													D<sub>crit</sub> = <span class="bond-TI-Dcrit"></span>
 												</td>
-												<td class="bond-pass"></td>
+												<td class="bond-TI-pass"></td>
 											</tr>
 										</tbody>
 									</table>
@@ -246,7 +246,7 @@
 												>Escoge el segundo tipo de distribución</label
 											>
 											<select name="distribucionSelect" id="distribucionSelect">
-												<option value="geometrica" selected>Geometrica</option>
+												<option value="normal" selected>Normal</option>
 												<option value="exponencial">Exponencial</option>
 											</select>
 										</div>
@@ -263,6 +263,20 @@
 											class="flip-card__input lambda-comp"
 											name="lambda-COMP"
 											placeholder="Taza de Ocurrencia (λ)"
+											type="text" />
+										<input
+											aria-required="true"
+											required
+											class="flip-card__input sigma_comp"
+											name="sigma_comp"
+											placeholder="σ"
+											type="text" />
+										<input
+											aria-required="true"
+											required
+											class="flip-card__input mu_comp"
+											name="mu_sigma"
+											placeholder="μ"
 											type="text" />
 										<div class="rangeContainer">
 											<label for="range-COMP">Cantidad de Numeros</label>

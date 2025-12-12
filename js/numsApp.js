@@ -8,7 +8,7 @@ import {
 	getCC,
 	renderMetodo,
 } from "./pseudoMethods.js";
-import { generateStatisticTest } from "./prTest.js";
+import { generateStatisticTest } from "./test/prTest.js";
 // import { clipboardCopy } from "./clipboardCopy.js";
 
 let psNumButton = document.querySelector(".actionpsNumButton");
