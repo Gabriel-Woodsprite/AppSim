@@ -103,5 +103,7 @@
 	justify-content: center;
 	align-items: center;
 }
-.statTestContainer {
+
+.statTestButton {
+	margin-bottom: 2rem;
 }
